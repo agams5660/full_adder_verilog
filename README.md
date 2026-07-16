@@ -1,35 +1,30 @@
-# 1-Bit Full Adder in Verilog
+# Positive Edge Triggered D Flip-Flop in Verilog
 
 ## Overview
 
-This project implements a 1-bit Full Adder using Verilog HDL and verifies its functionality using a testbench.
+This project implements a positive-edge triggered D Flip-Flop using Verilog HDL and verifies its behavior using a testbench.
 
-A Full Adder adds three 1-bit inputs (`A`, `B`, and `Cin`) and produces a **Sum** and a **Carry-Out**.
+The output (`Q`) updates only on the rising edge of the clock.
 
 ## Truth Table
 
-| A | B | Cin | Sum | Cout |
-|---|---|-----|-----|------|
-| 0 | 0 | 0 | 0 | 0 |
-| 0 | 0 | 1 | 1 | 0 |
-| 0 | 1 | 0 | 1 | 0 |
-| 0 | 1 | 1 | 0 | 1 |
-| 1 | 0 | 0 | 1 | 0 |
-| 1 | 0 | 1 | 0 | 1 |
-| 1 | 1 | 0 | 0 | 1 |
-| 1 | 1 | 1 | 1 | 1 |
+| Clock | D | Q (Next State) |
+|--------|---|----------------|
+| ↑ | 0 | 0 |
+| ↑ | 1 | 1 |
+| No rising edge | X | No Change |
 
 ## Files
 
-- `full_adder.v` – RTL design
-- `tb_full_adder.v` – Testbench
+- `d_flipflop.v` – RTL design
+- `tb_d_flipflop.v` – Testbench
 
 ## How to Run
 
 ```bash
-iverilog -o sim full_adder.v tb_full_adder.v
+iverilog -o sim d_flipflop.v tb_d_flipflop.v
 vvp sim
-gtkwave full_adder.vcd
+gtkwave d_flipflop.vcd
 ```
 
 ## Tools Used
@@ -42,7 +37,7 @@ gtkwave full_adder.vcd
 
 ## Simulation Waveform
 
-![Full Adder Waveform](images/full_adder_waveform.png)
+![D Flip-Flop Waveform](images/d_flipflop_waveform.png)
 
 ## Author
 
